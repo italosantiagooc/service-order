@@ -28,7 +28,7 @@ public class TechnicianService {
     public Technician findById(Integer id) {
         Optional<Technician> technician = technicianRepository.findById(id);
         return technician.orElseThrow(() -> new ObjectNotFoundException("object not found! Id: " + id +
-                ", Tipo: " + Technician.class.getName()));
+                ", Type: " + Technician.class.getName()));
 
     }
 
