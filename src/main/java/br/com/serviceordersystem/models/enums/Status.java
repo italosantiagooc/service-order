@@ -2,7 +2,7 @@ package br.com.serviceordersystem.models.enums;
 
 public enum Status {
 
-    OPEN(1, "ABERTO"), PROGRESS(1, "ANDAMENTO"), CLOSED(2, "ENCERRADO");
+    OPEN(0, "ABERTO"), PROGRESS(1, "ANDAMENTO"), CLOSED(2, "ENCERRADO");
 
     private Integer cod;
     private String description;
