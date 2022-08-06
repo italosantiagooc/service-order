@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-public class OrderService {
+public class OrderOfService {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,18 +30,18 @@ public class OrderService {
     @JoinColumn(name = "client_id")
     private Client client;
 
-    public OrderService() {
+    public OrderOfService() {
         super();
         this.setOpeningDate(LocalDateTime.now());
         this.setPriority(Priority.LOW);
         this.setStatus(Status.OPEN);
     }
 
-    public OrderService(Integer id, Priority priority, String comments, Status status, Technician technician,
-                        Client client) {
+    public OrderOfService(Integer id, Priority priority, String comments, Status status, Technician technician,
+                          Client client) {
         super();
         this.id = id;
-        this.setClosingDate(LocalDateTime.now());
+        this.setOpeningDate(LocalDateTime.now());
         this.priority = (priority == null) ? 0 : priority.getCod();
         this.comments = comments;
         this.status = (status == null) ? 0 : status.getCod();
@@ -117,7 +117,7 @@ public class OrderService {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrderService that = (OrderService) o;
+        OrderOfService that = (OrderOfService) o;
         return Objects.equals(id, that.id) && Objects.equals(openingDate, that.openingDate) && Objects.equals(closingDate, that.closingDate) && Objects.equals(priority, that.priority) && Objects.equals(comments, that.comments) && Objects.equals(status, that.status) && Objects.equals(technician, that.technician) && Objects.equals(client, that.client);
     }
 
