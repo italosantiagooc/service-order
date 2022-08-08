@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-public class OrderOfService {
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,15 +30,15 @@ public class OrderOfService {
     @JoinColumn(name = "client_id")
     private Client client;
 
-    public OrderOfService() {
+    public Order() {
         super();
         this.setOpeningDate(LocalDateTime.now());
         this.setPriority(Priority.LOW);
         this.setStatus(Status.OPEN);
     }
 
-    public OrderOfService(Integer id, Priority priority, String comments, Status status, Technician technician,
-                          Client client) {
+    public Order(Integer id, Priority priority, String comments, Status status, Technician technician,
+                 Client client) {
         super();
         this.id = id;
         this.setOpeningDate(LocalDateTime.now());
@@ -117,7 +117,7 @@ public class OrderOfService {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrderOfService that = (OrderOfService) o;
+        Order that = (Order) o;
         return Objects.equals(id, that.id) && Objects.equals(openingDate, that.openingDate) && Objects.equals(closingDate, that.closingDate) && Objects.equals(priority, that.priority) && Objects.equals(comments, that.comments) && Objects.equals(status, that.status) && Objects.equals(technician, that.technician) && Objects.equals(client, that.client);
     }
 

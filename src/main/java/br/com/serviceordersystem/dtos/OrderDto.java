@@ -1,12 +1,13 @@
 package br.com.serviceordersystem.dtos;
 
-import br.com.serviceordersystem.models.OrderOfService;
+import br.com.serviceordersystem.models.Order;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class OrderOfServiceDto implements Serializable {
+public class OrderDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer id;
@@ -15,16 +16,17 @@ public class OrderOfServiceDto implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime closingDate;
     private Integer priority;
+    @NotBlank(message = "The comments field is required")
     private String comments;
     private Integer status;
     private Integer technician;
     private Integer client;
 
-    public OrderOfServiceDto() {
+    public OrderDto() {
         super();
     }
 
-    public OrderOfServiceDto(OrderOfService orderOfService) {
+    public OrderDto(Order orderOfService) {
         super();
         this.id = orderOfService.getId();
         this.openingDate = orderOfService.getOpeningDate();
