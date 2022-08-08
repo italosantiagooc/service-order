@@ -14,7 +14,7 @@ public class Client extends Person implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @OneToMany(mappedBy = "client")
-    private List<OrderOfService> orderService = new ArrayList<>();
+    private List<Order> orderService = new ArrayList<>();
 
     public Client() {
         super();

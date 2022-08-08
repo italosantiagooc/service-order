@@ -16,7 +16,7 @@ public class Technician extends Person implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "technician")
-    private List<OrderOfService> orderServices = new ArrayList<>();
+    private List<Order> orderServices = new ArrayList<>();
 
     public Technician() {
         super();
